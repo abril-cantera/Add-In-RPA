@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
 
-const devCerts = require("office-addin-dev-certs");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const webpack = require("webpack");
+import devCerts from "office-addin-dev-certs";
+import CopyWebpackPlugin from "copy-webpack-plugin";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import webpack from "webpack";
 
 // ============================================================================
 // 🚀 CONFIGURACIÓN DE PRODUCCIÓN (Por defecto)
@@ -31,7 +31,7 @@ async function getHttpsOptions() {
   return { ca: httpsOptions.ca, key: httpsOptions.key, cert: httpsOptions.cert };
 }
 
-module.exports = async (env, options) => {
+export default async (env, options) => {
   const dev = options.mode === "development";
   
   // SIEMPRE usar URLs de producción (incluso en modo development)
